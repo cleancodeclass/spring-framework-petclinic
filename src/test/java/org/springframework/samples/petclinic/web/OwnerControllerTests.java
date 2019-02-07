@@ -58,9 +58,48 @@ public class OwnerControllerTests {
 
     }
     
+    
+    /*
+     * 1. 등록화면 이동 테스트
+     * 호출 URL : /owners/new (get)
+     * 점검 : status ok, view name 확인 
+     */
     @Test
-    public void test() {
+    public void testInitCreationForm() {
     	
     }
-    // TODO Create Tests for OwnerController
+    
+    
+    /*
+     * 2. 등록 테스트
+     * 호출 URL : /owners/new (post)
+     * 점검 : status 300 redirect 여부
+     */
+    @Test
+    public void testProcessCreationFormSuccess(){
+    	
+    }
+    
+    
+    /*
+     * 3. Last Name 검색
+     * 호출 URL : /owners (get)
+     * 파라미터 : lastName=Franklin
+     * 점검 : status 300 redirect, view name ("redirect:" prefix가 붙음)
+     */
+    @Test
+    public void testProcessFindFormByLastName(){
+    	
+    }
+    
+    
+    /*
+     * 4. 상세 조회
+     * 호출 URL : /owners/{ownerId} (get)
+     * 점검 : status ok, model("owner") 속성 확인 (테스트 데이터), view name
+     */
+    @Test
+    public void testShowOwner(){
+    	
+    }
 }
