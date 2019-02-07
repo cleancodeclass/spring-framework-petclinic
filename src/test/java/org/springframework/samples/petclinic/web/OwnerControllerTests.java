@@ -65,8 +65,11 @@ public class OwnerControllerTests {
      * 점검 : status ok, view name 확인 
      */
     @Test
-    public void testInitCreationForm() {
-    	
+    public void testInitCreationForm() throws Exception {
+    	mockMvc.perform(get("/owners/new"))
+    		.andExpect(status().isOk())
+    		.andExpect(model().attributeExists("owner"))
+    		.andExpect(view().name("owners/createOrUpdateOwnerForm"));
     }
     
     
