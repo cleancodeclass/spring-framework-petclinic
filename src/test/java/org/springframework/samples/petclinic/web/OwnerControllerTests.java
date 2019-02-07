@@ -79,8 +79,15 @@ public class OwnerControllerTests {
      * 점검 : status 300 redirect 여부
      */
     @Test
-    public void testProcessCreationFormSuccess(){
-    	
+    public void testProcessCreationFormSuccess() throws Exception{
+    	mockMvc.perform(post("/owners/new")
+    		.param("firstName", "Joe")
+    		.param("lastName", "Bloggs")
+    		.param("address", "123 Caramel Street")
+    		.param("city", "London")
+    		.param("telephone", "01316761638")
+    	)
+    		.andExpect(status().is3xxRedirection());
     }
     
     
