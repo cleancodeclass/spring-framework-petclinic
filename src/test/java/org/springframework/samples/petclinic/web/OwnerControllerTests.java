@@ -98,8 +98,15 @@ public class OwnerControllerTests {
      * 점검 : status 300 redirect, view name ("redirect:" prefix가 붙음)
      */
     @Test
-    public void testProcessFindFormByLastName(){
+    public void testProcessFindFormByLastName() throws Exception{
+    	given(this.clinicService.findOwnerByLastName(george.getLastName()))
+    		.willReturn(Lists.newArrayList(george));
     	
+    	mockMvc.perform(get("/owners")
+    		.param("lastName", "Franklin")
+    	)
+			.andExpect(status().is3xxRedirection())
+			.andExpect(view().name("redirect:/owners/" + TEST_OWNER_ID));
     }
     
     
