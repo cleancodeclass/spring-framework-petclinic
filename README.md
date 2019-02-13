@@ -1,5 +1,5 @@
-# 스프링 프레임워크 펫 클리닉 프로젝트 소개
-Pet Clinic 프로젝트는 간단한 동물 병원 웹사이트입니다.
+# Spring Framwework Pet Clinic 프로젝트 소개
+Pet Clinic 프로젝트는 스프링 프레임워크를 활용하여 만들어  간단한 동물 병원 웹사이트입니다.
 
 # 실습 가이드
 ### Exception 발생시켜보기
