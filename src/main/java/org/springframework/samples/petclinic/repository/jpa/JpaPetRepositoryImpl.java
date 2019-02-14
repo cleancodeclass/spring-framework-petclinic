@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.repository.jpa;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -59,5 +60,11 @@ public class JpaPetRepositoryImpl implements PetRepository {
             this.em.merge(pet);
         }
     }
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public Collection<Pet> findAll() {
+		return this.em.createQuery("SELECT pet FROM Pet pet ORDER BY pet.id").getResultList();
+	}
 
 }

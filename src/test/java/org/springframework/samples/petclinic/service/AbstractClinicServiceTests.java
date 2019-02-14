@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import org.junit.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
@@ -54,6 +55,10 @@ public abstract class AbstractClinicServiceTests {
 
     @Autowired
     protected ClinicService clinicService;
+    
+    @Autowired
+    @Mock
+    protected PetService petService;
 
     @Test
     public void shouldFindOwnersByLastName() {
@@ -198,6 +203,18 @@ public abstract class AbstractClinicServiceTests {
         assertThat(visitArr[0].getDate()).isNotNull();
         assertThat(visitArr[0].getPet().getId()).isEqualTo(7);
     }
-
+    
+    /*
+     * 추가로 PetService 활용하여 테스트 코드 작성하는 부분
+     */
+    @Test
+    public void shouldFindPets(){
+    	Collection<Pet> pets = this.petService.findPets();
+    	assertThat(pets.size()).isEqualTo(13);
+    	
+    	Pet pet = EntityUtils.getById(pets, Pet.class, 13);
+    	assertThat(pet.getName()).isEqualTo("Sly");
+        assertThat(pet.getId()).isEqualTo(13);
+    }
 
 }

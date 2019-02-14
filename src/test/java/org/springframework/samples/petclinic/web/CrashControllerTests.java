@@ -49,4 +49,14 @@ public class CrashControllerTests {
             .andExpect(forwardedUrl("exception"))
             .andExpect(status().isOk());
     }
+    
+    /*
+     * 이 부분은 추가로 작성한 테스트 케이스
+     * 만약 등록되지 않은 rest api(?)를 호출 할 경우에는 어떤 일이 발생하는가?
+     */
+    @Test
+    public void testNonRegisteredApiCallException() throws Exception{
+    	mockMvc.perform(get("/oups_see"))
+    		.andExpect(status().is4xxClientError());
+    }
 }
