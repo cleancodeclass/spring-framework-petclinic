@@ -1,6 +1,7 @@
 # Spring Framework Pet Clinic 프로젝트 소개
 Pet Clinic 프로젝트는 스프링 프레임워크를 활용하여 만들어  간단한 동물 병원 웹사이트입니다.
 
+
 # 실습 가이드
 ### Exception 발생시켜보기
 * CrashControllerTests에서 등록되지 않은 api 호출 시 어떤 현상이 일어나는지 확인
